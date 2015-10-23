@@ -2,7 +2,7 @@ module DestinationsHelper
 
   def visa_need(destination)
     if destination.policy.freedom?
-      { image: "walk.svg", title: "Freedom of movement", text: "You can freely move inside #{destination.zone == 'Turkey' ? '' : 'the '}#{destination.zone} without any limitation. You can travel with your ID card." }
+      { image: "walk.svg", title: "Freedom of movement", text: "You can freely move inside #{destination.zone == 'Turkey' ? '' : 'the '}#{destination.zone} without any limitation." }
     elsif destination.policy.need_visa? === true
       { image: "visa.svg", title: "Visa needed", text: "You need an e-visa to enter #{destination.zone == 'Turkey' ? '' : 'the '}#{destination.zone}. You can stay 90 days in ANY 180 days period." }
     elsif destination.policy.need_visa? === false
