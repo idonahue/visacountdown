@@ -71,6 +71,11 @@ Schengen area:
       need_visa: false
       length: 90
       window: 180
+    Cyprus:
+      freedom: true
+      need_visa: false
+      length: 0
+      window: 0
     El Salvador:
       freedom: false
       need_visa: false
@@ -332,6 +337,11 @@ Schengen area:
       length: no info
       window: no info
     Liechtenstein:
+      freedom: true
+      need_visa: false
+      length: 0
+      window: 0
+    Latvia:
       freedom: true
       need_visa: false
       length: 0
@@ -594,6 +604,11 @@ Turkey:
       need_visa: no info
       length: no info
       window: no info
+    Cyprus:
+      freedom: false
+      need_visa: no info
+      length: no info
+      window: no info
     El Salvador:
       freedom: false
       need_visa: false
@@ -974,6 +989,11 @@ Turkey:
       need_visa: true
       length: 90
       window: 180
+    Latvia:
+      freedom: false
+      need_visa: no info
+      length: no info
+      window: no info
     Maldives:
       freedom: false
       need_visa: true
@@ -1044,3 +1064,210 @@ Turkey:
       need_visa: true
       length: 90
       window: 180
+United Arab Emirates:
+  policies:
+    None:
+      freedom: false
+      need_visa: no info
+      length: 90
+      window: 180
+    Austria:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Belgium:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Bulgaria:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Croatia:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Cyprus:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Czech Republic:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Denmark:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Estonia:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Finland:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    France:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Germany:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Greece:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Hungary:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Italy:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Latvia:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Lithuania:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Luxembourg:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Malta:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Netherlands:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Poland:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Portugal:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Romania:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Slovakia:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Slovenia:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Spain:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Sweden:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Andorra:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Iceland:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Liechtenstein:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Monaco:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Norway:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    San Marino:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Seychelles:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Switzerland:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Vatican:
+      freedom: false
+      need_visa: false
+      length: 90
+      window: 180
+    Bahrain:
+      freedom: true
+      need_visa: false
+      length: 0
+      window: 0
+    Kuwait:
+      freedom: true
+      need_visa: false
+      length: 0
+      window: 0
+    Oman:
+      freedom: true
+      need_visa: false
+      length: 0
+      window: 0
+    Qatar:
+      freedom: true
+      need_visa: false
+      length: 0
+      window: 0
+    Saudi Arabia:
+      freedom: true
+      need_visa: false
+      length: 0
+      window: 0
