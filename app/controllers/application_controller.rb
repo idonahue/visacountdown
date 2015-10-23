@@ -58,7 +58,7 @@ class ApplicationController < ActionController::Base
     u = User.new(email: "guest_#{Time.now.to_i}#{rand(100)}@example.com")
     u.save!(validate: false)
 
-    ZONES.each do |z|
+    ["Schengen area", "Turkey"].each do |z|
       d = Destination.new(user: u, zone: z)
       d.save!(validate: false)
     end

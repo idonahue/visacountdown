@@ -47,7 +47,7 @@
     </div>
     <!-- END USER COLUMN -->
     <div class="col-sm-7">
-      <% @user.destinations.order(:zone).each do |destination| %>
+      <% @user.destinations.order(:created_at).each do |destination| %>
       <div class="col-md-6">
         <ul class="list-group">
 
@@ -75,7 +75,27 @@
           </li>
         </ul>
       </div>
-    <% end %>
+      <% end %>
+
+      <% if (ZONES - @user.destinations.map(&:zone)).present? %>
+        <div class="col-md-6">
+          <ul class="list-group">
+            <li class="list-group-item padded-mini">
+              <%= simple_form_for(Destination.new) do |f| %>
+                <%= f.error_notification %>
+                <strong>Add a destination</strong>
+
+                <div class="input-group">
+                  <%= f.input :zone, label: "Add a destination", label_html: { class: "sr-only" }, input_html: { class: "form-control input-sm"}, collection: (ZONES - @user.destinations.map(&:zone)), include_blank: false %>
+                  <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary btn-sm text-uppercase"><small>Add</small></button>
+                  </span>
+                </div><!-- /input-group -->
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

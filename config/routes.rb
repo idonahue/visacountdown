@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :destinations, only: [:edit] do
+  resources :destinations, only: [:edit, :create] do
     member do
       patch 'set_latest_entry'
       put 'set_latest_entry'

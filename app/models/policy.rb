@@ -6,10 +6,15 @@ class Policy
     @destination = destination || nil
     @citizenship = citizenship || nil
     begin
-      @rules = POLICIES[@destination]["policies"][@citizenship]
+      @rules = POLICIES[@destination]["policies"][@citizenship] || {
+        "freedom" => false,
+        "need_visa" => "Argument error: nothing found in DB",
+        "length" => "Argument error: nothing found in DB",
+        "window" => "Argument error: nothing found in DB"
+      }
     rescue
       @rules = {
-        "freedom" => "Argument error: nothing found in DB",
+        "freedom" => false,
         "need_visa" => "Argument error: nothing found in DB",
         "length" => "Argument error: nothing found in DB",
         "window" => "Argument error: nothing found in DB"
