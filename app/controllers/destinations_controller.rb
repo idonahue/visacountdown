@@ -12,7 +12,7 @@ class DestinationsController < ApplicationController
 
     if @destination.save
       respond_to do |format|
-        format.html { redirect_to root_path, notice: 'Destination added.' }
+        format.html { redirect_to root_path }
         format.js
       end
     else
@@ -28,7 +28,7 @@ class DestinationsController < ApplicationController
     if current_or_guest_user.destinations.include?(@destination)
       if @destination.update(latest_entry_params)
         respond_to do |format|
-          format.html { redirect_to root_path, notice: 'Your latest location has been updated.' }
+          format.html { redirect_to root_path }
           format.js
         end
       else

@@ -20,7 +20,7 @@ class PeriodsController < ApplicationController
 
     if @period.save
       respond_to do |format|
-        format.html { redirect_to root_path, notice: 'Period was successfully created.' }
+        format.html { redirect_to root_path }
         format.js
       end
     else
@@ -37,7 +37,7 @@ class PeriodsController < ApplicationController
       @period.destination = @destination
       if @period.update(period_params)
         respond_to do |format|
-          format.html { redirect_to root_path, notice: 'Period was successfully updated.' }
+          format.html { redirect_to root_path }
           format.js
         end
       else
@@ -57,7 +57,7 @@ class PeriodsController < ApplicationController
       @period.destroy
 
       respond_to do |format|
-        format.html { redirect_to root_path, notice: 'Period was successfully deleted.' }
+        format.html { redirect_to root_path }
         format.js
       end
     else

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user == current_or_guest_user
       if @user.update(citizenship_params)
         respond_to do |format|
-          format.html { redirect_to root_path, notice: 'Your citizenship has been updated.' }
+          format.html { redirect_to root_path }
           format.js
         end
       else
