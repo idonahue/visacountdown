@@ -125,7 +125,7 @@ RSpec.describe Policy, type: :model do
 
     it 'has no citizenship, destination Schengen' do
       p = Policy.new(destination: "Schengen")
-      expect(p.freedom?).to match("Argument error: nothing found in DB")
+      expect(p.freedom?).to be false
     end
 
     it 'has no destination, citizenship Switzerland' do
@@ -145,7 +145,7 @@ RSpec.describe Policy, type: :model do
 
     it 'has Switzerland citizenship, goes to China' do
       p = Policy.new(citizenship: "Switzerland", destination: "China")
-      expect(p.freedom?).to match("Argument error: nothing found in DB")
+      expect(p.freedom?).to be false
     end
 
     it 'has Turkmenistan citizenship, goes to China' do
