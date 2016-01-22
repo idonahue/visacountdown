@@ -21,27 +21,26 @@
     </div>
   <% else %>
 
-    <% if ["quota_will_be_used_cannot_enter", "quota_will_be_used_no_entry", "quota_used_cannot_enter", "quota_used_no_entry"].include?(destination.countdown.situation) %>
-      <div class="row padded-mini-bottom">
-        <div class="col-xs-6">
+    <div class="row">
+      <% if ["quota_will_be_used_cannot_enter", "quota_will_be_used_no_entry", "quota_used_cannot_enter", "quota_used_no_entry"].include?(destination.countdown.situation) %>
+        <div class="col-xs-6 col-md-3 padded-mini-bottom">
           <div class="text-mini">Quota used on</div>
           <div class="text-average"><strong><%= date_format(destination.countdown.quota_day) %></strong></div>
         </div>
-        <div class="col-xs-6 text-right">
+        <div class="col-xs-6 col-md-3 padded-mini-bottom">
           <div class="text-mini">Next possible entry</div>
           <div class="text-average"><strong><%= date_format(destination.countdown.next_entry) %></strong></div>
         </div>
-      </div>
-    <% end %>
+        <% four_cols = "col-md-3" %>
+      <% end %>
 
-    <div class="row">
-      <div class="col-xs-6">
+      <div class="col-xs-6 <%= four_cols %>">
         <div class="text-mini">Remaining time</div>
         <div class="text-average"><strong><%= destination.countdown.remaining_time %> days</strong></div>
       </div>
 
       <% unless ["outside_ok", "inside_ok"].include?(destination.countdown.situation) && !destination.latest_entry? %>
-        <div class="col-xs-6 text-right">
+        <div class="col-xs-6 <%= four_cols %>">
           <div class="text-mini">Latest exit</div>
           <div class="text-average"><strong><%= date_format(destination.countdown.exit_day) %></strong></div>
         </div>

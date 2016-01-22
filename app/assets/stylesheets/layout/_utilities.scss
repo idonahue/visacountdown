@@ -5,6 +5,10 @@
  * ------------------------------------- */
 .marged {
   padding: 1em;
+  &-sides {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
 .padded {
   padding-top: 3em;

@@ -1,6 +1,13 @@
 <li class="list-group-item">
   <div class="row vertical-align">
     <div class="top-right">
+      <span class="text-small marged-sides">
+        <% if period %>
+          <%= link_to 'Edit', edit_period_path(period) %>
+        <% else %>
+          <%= link_to 'Edit latest entry', edit_destination_path(destination) %>
+        <% end %>
+      </span>
       <% if period %>
         <%= link_to period, method: :delete, title: "Delete" do %>
           <i class="fa fa-trash"></i>
@@ -20,17 +27,6 @@
     </div>
     <div class="col-xs-4 text-right">
       <span class="text-small"><%= stop %></span>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 text-center">
-      <span class="text-small">
-        <% if period %>
-          <%= link_to 'Edit', edit_period_path(period) %>
-        <% else %>
-          <%= link_to 'Edit latest entry', edit_destination_path(destination) %>
-        <% end %>
-      </span>
     </div>
   </div>
 </li>

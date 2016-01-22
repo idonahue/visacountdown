@@ -9,7 +9,7 @@
 <div class="container svg">
   <div class="row">
     <!-- USER COLUMN -->
-    <div class="col-sm-5">
+    <div class="col-sm-4">
       <ul class="list-group">
         <li class="list-group-item text-uppercase padded">
           <div class="text-center">
@@ -23,11 +23,41 @@
           </div>
         </li>
 
-        <% @user.destinations.order(:zone).each do |destination| %>
+        <% @user.destinations.order(:created_at).each do |destination| %>
           <li class="list-group-item padded-mini">
             <div class="text-center text-uppercase">
-              <div class="text-medium padded-mini"><%= destination %></div>
+              <div class="text-medium"><%= link_to destination, "#destination-#{destination.id}" %></div>
             </div>
+          </li>
+        <% end %>
+
+        <% if (ZONES - @user.destinations.map(&:zone)).present? %>
+              <li class="list-group-item padded-mini">
+                <%= simple_form_for(Destination.new) do |f| %>
+                  <%= f.error_notification %>
+                  <strong>Add a destination</strong>
+
+                  <div class="input-group">
+                    <%= f.input :zone, label: "Add a destination", label_html: { class: "sr-only" }, input_html: { class: "form-control input-sm"}, collection: (ZONES - @user.destinations.map(&:zone)), include_blank: false %>
+                    <span class="input-group-btn">
+                      <button type="submit" class="btn btn-primary btn-sm text-uppercase"><small>Add</small></button>
+                    </span>
+                  </div><!-- /input-group -->
+                <% end %>
+              </li>
+        <% end %>
+
+      </ul>
+    </div>
+    <!-- END USER COLUMN -->
+    <div class="col-sm-8">
+      <% @user.destinations.order(:created_at).each do |destination| %>
+      <div class="col-md-12">
+        <ul id="destination-<%= destination.id %>" class="list-group">
+
+          <%= render 'destinations/status', destination: destination %>
+
+          <li class="list-group-item padded-mini">
             <div class='media'>
               <div class='media-left media-middle'>
                 <%= image_tag visa_need(destination)[:image], height: '50px', style: 'vertical-align: text-bottom' %>
@@ -42,16 +72,6 @@
               <div class="text-center"><a href="<%= destination.policy.website %>" class="btn btn-primary" target="_blank">Get a visa</a></div>
             <% end %>
           </li>
-        <% end %>
-      </ul>
-    </div>
-    <!-- END USER COLUMN -->
-    <div class="col-sm-7">
-      <% @user.destinations.order(:created_at).each do |destination| %>
-      <div class="col-md-6">
-        <ul class="list-group">
-
-          <%= render 'destinations/status', destination: destination %>
 
           <% if destination.latest_entry && destination.latest_entry <= Date.current %>
             <%= render 'periods/one_period', start: date_format(destination.latest_entry), stop: "ongoing", count: (Date.current - destination.latest_entry).to_i + 1, destination: destination, period: nil %>
@@ -75,26 +95,6 @@
           </li>
         </ul>
       </div>
-      <% end %>
-
-      <% if (ZONES - @user.destinations.map(&:zone)).present? %>
-        <div class="col-md-6">
-          <ul class="list-group">
-            <li class="list-group-item padded-mini">
-              <%= simple_form_for(Destination.new) do |f| %>
-                <%= f.error_notification %>
-                <strong>Add a destination</strong>
-
-                <div class="input-group">
-                  <%= f.input :zone, label: "Add a destination", label_html: { class: "sr-only" }, input_html: { class: "form-control input-sm"}, collection: (ZONES - @user.destinations.map(&:zone)), include_blank: false %>
-                  <span class="input-group-btn">
-                    <button type="submit" class="btn btn-primary btn-sm text-uppercase"><small>Add</small></button>
-                  </span>
-                </div><!-- /input-group -->
-              <% end %>
-            </li>
-          </ul>
-        </div>
       <% end %>
     </div>
   </div>
