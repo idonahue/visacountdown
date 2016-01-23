@@ -2,13 +2,13 @@ module DestinationsHelper
 
   def visa_need(destination)
     if destination.policy.freedom?
-      { image: "walk.svg", title: "Freedom of movement", text: "You can freely move inside #{destination.zone == 'Turkey' ? '' : 'the '}#{destination.zone} without any limitation." }
+      { image: "walk.svg", title: "Freedom of movement", text: "You can freely move inside #{destination.zone == 'Schengen area' ? 'the ' : ''}#{destination.zone} without any limitation." }
     elsif destination.policy.need_visa? === true
-      { image: "visa.svg", title: "Visa needed", text: "You need an e-visa to enter #{destination.zone == 'Turkey' ? '' : 'the '}#{destination.zone}. You can stay #{destination.policy.length} days in ANY #{destination.policy.window} days period." }
+      { image: "visa.svg", title: "Visa needed", text: "You need an e-visa to enter #{destination.zone == 'Schengen area' ? 'the ' : ''}#{destination.zone}. You can stay #{destination.policy.length} days in ANY #{destination.policy.window} days period." }
     elsif destination.policy.need_visa? === false
-      { image: "novisa.svg", title: "Visa not needed", text: "You don't need a visa to enter #{destination.zone == 'Turkey' ? '' : 'the '}#{destination.zone}. You can stay #{destination.policy.length} days in ANY #{destination.policy.window} days period." }
+      { image: "novisa.svg", title: "Visa not needed", text: "You don't need a visa to enter #{destination.zone == 'Schengen area' ? 'the ' : ''}#{destination.zone}. You can stay #{destination.policy.length} days in ANY #{destination.policy.window} days period." }
     else
-      { image: "logo_no_text.svg", title: "No information", text: "Sorry, Visa Countdown has no information for citizens from #{destination.user.citizenship} going to #{destination.zone == 'Turkey' ? '' : 'the '}#{destination.zone}." }
+      { image: "logo_no_text.svg", title: "No information", text: "Sorry, Visa Countdown has no information for citizens from #{destination.user.citizenship} going to #{destination.zone == 'Schengen area' ? 'the ' : ''}#{destination.zone}." }
     end
   end
 
